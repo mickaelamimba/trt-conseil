@@ -6,6 +6,7 @@
 {{inspect(flashMessages)}}
 <section>
   <form action="{{route('login.store')}}" method="post">
+    {{ csrfField() }}
     <div>
       <label for="email">
         <span>Eamil :</span>

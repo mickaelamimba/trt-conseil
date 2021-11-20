@@ -28,3 +28,6 @@ Route.get('/', async ({ view }) => {
 Route.post('/register', 'RegistersController.create').as('register.create')
 Route.post('/login', 'LoginController.store').as('login.store')
 Route.post('/logout', 'LoginController.logout').as('session.logout')
+
+Route.post('/candidat', 'CandidatsController.create').as('candidat.create')
+Route.get('/profile', 'CandidatsController.index').as('candidat.index')

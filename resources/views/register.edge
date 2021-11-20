@@ -10,7 +10,7 @@
   <div>
     {{inspect(flashMessages)}}
     <form action="{{route('register.create')}}" method="post">
-
+        {{ csrfField() }}
 
       <div>
         <label for="fist_name">
