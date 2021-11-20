@@ -1,0 +1,78 @@
+@layout('layouts/main')
+@set('title', 'Inscription')
+
+
+@section('body')
+<section>
+  <div>
+    <h3>Inscription</h3>
+  </div>
+  <div>
+    {{inspect(flashMessages)}}
+    <form action="{{route('register.create')}}" method="post">
+
+
+      <div>
+        <label for="fist_name">
+          <span>Prénom:</span>
+          <input type="text" name="firstName" id="first_name">
+        </label>
+        @if(flashMessages.has('errors.firstName'))
+          <div>{{flashMessages.get('errors.firstName')}}</div>
+        @endif
+      </div>
+      <div>
+        <label for="last_name">
+          <span>Nom:</span>
+          <input type="text" name="lastName" id="last_name">
+        </label>
+        @if(flashMessages.has('errors.lastName'))
+          <div>{{flashMessages.get('errors.lastName')}}</div>
+        @endif
+      </div>
+      <div>
+        <label for="email">
+          <span>Email:</span>
+          <input type="email" name="email" id="email" >
+        </label>
+        @if(flashMessages.has('errors.email'))
+          <div>{{flashMessages.get('errors.email')}}</div>
+        @endif
+      </div>
+      <div>
+        <label for="password">
+          <span>Mots de passe :</span>
+          <input type="password" name="password" id="password">
+        </label>
+        @if(flashMessages.has('errors.password'))
+          <div>{{flashMessages.get('errors.password')}}</div>
+        @endif
+      </div>
+       <div>
+        <label for="passwordConfirm">
+          <span> Confirm mots de passe :</span>
+          <input type="password" name="passwordConfirm" id="passwordConfirm">
+        </label>
+        @if(flashMessages.has('errors.passwordConfirm'))
+          <div>{{flashMessages.get('errors.passwordConfirm')}}</div>
+        @endif
+      </div>
+      <div>
+        <label for="role">
+          <span>Roles</span>
+          <select name="roles" id="roles">
+            <option value="RECRUTEURS">Recruteurs</option>
+            <option value="CANDIDAT">Candidat</option>
+          </select>
+        </label>
+        @if(flashMessages.has('errors.roles'))
+          <div>{{flashMessages.get('errors.roles')}}</div>
+        @endif
+      </div>
+      <div>
+        <button type="submit">Inscription</button>
+      </div>
+    </form>
+  </div>
+</section>
+@end

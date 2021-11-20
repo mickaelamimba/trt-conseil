@@ -1,0 +1,37 @@
+@layout('layouts/main')
+@set('title', 'Connexion')
+
+
+@section('body')
+{{inspect(flashMessages)}}
+<section>
+  <form action="{{route('login.store')}}" method="post">
+    <div>
+      <label for="email">
+        <span>Eamil :</span>
+        <input type="email" name="email" id="email">
+      </label>
+      @if(flashMessages.has('errors.email'))
+          <div>{{flashMessages.get('errors.email')}}</div>
+        @endif
+
+    </div>
+    <div>
+      <label for="password">
+        <span>Mots de passe :</span>
+        <input type="password" name="password" id="password">
+      </label>
+      @if(flashMessages.has('errors.password'))
+          <div>{{flashMessages.get('errors.password')}}</div>
+        @endif
+    </div>
+    <div>
+      <button type="submit">Connexion</button>
+    </div>
+  </form>
+
+</section>
+
+
+
+@end
